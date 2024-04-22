@@ -17,9 +17,3 @@ form.addEventListener('submit', (e) => {
         errorElement.innerText = messages.join('\n')
     }
 });
-
-document.getElementById('form').addEventListener('submit', function(event) {
-    if (window.location.pathname.includes("volibear.html")) {
-        document.getElementById('form-container').style.display = 'none';
-    }
-});
