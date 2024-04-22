@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Javascript Buttons Activity </title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <style> 
+    :root{
+        --blue: #1c6097;
+        --btn-blue: #74b5ea;
+        --sky-blue: #5598d2;
+        --gray: #c3ccd4;
+        --Cgray:rgb(114, 119, 124);
+        --white: #FAF9F6;
+        --white-snow: #F5F5F5;
+        --h1-size: clamp(1em, 3.5em,4.5em);
+        --def: #234;
+        --btn-color: #3c3c3c;
+
+        --font-family: "Poppins", sans-serif; 
+
+    }   
+       body{
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: var(--font-family);
+        margin: 0;
+        color: var(--def); 
+        background-color: var(--white-snow); 
+       }
+
+       input {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-family: var(--font-family);
+    }       
+       body.dark-mode {
+        color: white; 
+        background-color: #222;
+       }
+
+       .section1{
+        margin: 4em 3em;
+       }
+        #volibear {
+            width: 100%;
+            max-height: 70vh;
+        }
+        .buttons{
+            margin: 0 1em;
+            display: grid;
+            /* grid-template-columns: repeat(4,1fr); */
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-gap: 15px;
+            justify-content: center;
+            margin-bottom: 2em;
+        }
+        @media screen and (min-width: 300px) {
+        .buttons {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media screen and (min-width: 600px) {
+        .buttons {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        }
+
+        }
+        p{
+            margin: 1em 2em;
+        }
+
+        h1{
+            text-align: center;
+            font-size: var(--h1-size);
+            margin-bottom: 0;
+        }
+        button {
+            font-family: var(--font-family);
+
+            border-radius: 2em;
+            border: none;
+            padding: .7rem 1rem;
+            background-color: var(--btn-color); 
+            color: white; 
+        }
+        button.dark-mode {
+            background-color: var(--white);
+            color: rgb(0, 0, 0); 
+        }
+        #voliQuote {
+            margin: 2em  auto;
+            display: grid;
+            align-items: center;
+        }
+        #voliQuote img {
+            width: 200px;
+            height: 200px;
+            margin: 0 2em;
+            grid-row: 1;
+            justify-self: center;
+        }
+        #voliQuote button{
+            margin-bottom: .3em;
+            width: 10em;
+            max-width: 45vw;
+            justify-self: center;
+        }
+        #voli-ans {
+            font-size: clamp(1em, 2vw, 3em);
+
+        }
+        .container{
+            padding: 1em;
+            display: grid;
+            grid-gap: 1em;
+            /* grid-template-columns: repeat(2, 1fr); */
+            grid-template-columns: minmax(300px, 1fr) minmax(300px, 1fr);            
+            text-align: center;
+            background-color: #d2d2d2;
+        }
+        @media screen and (max-width: 600px) {
+        .container {
+            grid-template-columns: 1fr; 
+        }
+    }
+        .container.dark-mode{
+            filter: grayscale(10%);
+            background-color: #404040;
+        }
+
+        #colorChange{
+            margin-top: 1em;
+        }
+        #colorCode{height: 1.5em; width: 50%}
+        .slideshow {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end; 
+        }
+
+        .image-container {
+            position: relative; 
+        }
+
+        .button-container {
+                bottom: 0; 
+                width: 100%; 
+                display: flex;
+                justify-content: space-between; 
+        }
+
+        .button-container button {
+            width: 50%; 
+            margin-left: .5em;
+        }
+         button:hover {
+            background-color: var(--btn-blue);
+        }
+        #calculator {
+            background-color: var(--Cgray);
+            padding: 3em;
+            width: clamp(30%, 50%, 90%);
+            max-width: 30vw; 
+            margin: 0 auto; 
+        }
+
+        #calculator {
+        max-width: 30vw; 
+        margin: 0 auto; 
+        border-radius: 15px;
+        }
+        #display{
+           height: 5em;
+           width: 100%;
+           margin-bottom: 0;
+           display: grid;
+           justify-content: center;
+           align-items: center;
+           font-size: clamp(1em, 2vw, 2.5em);
+
+           border: none;
+        }
+        #keys{
+            margin-top: 1em;
+            display: grid;
+            grid-gap: 10px;
+            grid-template-columns: repeat(4, 1fr);
+            width: auto;
+            justify-content: center;
+            align-items: center;
+        }
+        #keys button {
+            border-radius: .5em;
+        }
+        .operator {
+            background-color: var(--gray);
+        }
+        .calcBtn{
+            background-color: #2a3742;
+        }
+        
+        .moreInfo{
+            margin: 1em;
+            display: flex;
+            justify-content: center;
+            text-align: center;
+        }
+        .validForm {
+    margin: 1em;
+    text-align: center;
+}
+
+.validForm form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1em;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 1em;
+    background-color: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.validForm input {
+    width: 100%;
+    padding: 0.5em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.validForm button {
+    width: 100%;
+    padding: 0.5em;
+    background-color: var(--btn-blue);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.validForm button:hover {
+    background-color: var(--sky-blue);
+}
+
+    </style>
+</head>
+<body>
+
+    <div class="validForm">
+        <form> 
+            <label for="Username"> Username </label>
+            <input id="username" type="text" name="username" required>
+            <label for="Password"> Password </label>
+            <input id="password" type="text" name="password" required> 
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    
+    <div class="image">
+        <img id="volibear" src="https://www.runeterrafire.com/images/decks/top/volibear.jpg">
+    </div>
+    <div class="section1">
+        <h1 id="title"> Volibear </h1>
+        <p id="text1"> To those who still revere him, the Volibear is the storm made 
+            manifest. Destructive, wild, and stubbornly resolute, he existed before mortals walked the Freljord's tundra, and is fiercely protective of the lands that he and his demi-god kin created. Cultivating a deep hatred of civilization and the weakness it brought with it, he now fights to return to the old ways—when the land was untamed, and blood spilled freely—and eagerly battles all who oppose him, with tooth, claw, and thundering domination.  </p>
+         <div class="buttons">
+            <button onclick="increaseFont('text1')">Increase Text Size </button>
+            <button onclick="decreaseFont('text1')">Decrease Text Size</button>
+            <button onclick="resetFont('text1')">Reset Text Size</button>
+            
+            <button onclick="increaseFont('title')">Increase Title Size</button>
+            <button onclick="decreaseFont('title')">Decrease Title Size</button>
+            <button onclick="resetFont('title')">Reset Title Size</button>
+            <button onclick="resetColor()">Reset Font Color </button>
+            <button id="darkModeButton" class="darkMode" onclick="toggleDarkMode()"> Dark Mode </button> 
+         </div>
+    </div>
+    <div class="container">
+        <div id="voliQuote">
+            <img src="https://64.media.tumblr.com/320432409ace07fa89725a66e884ffca/1d83e820693ffc1d-83/s400x600/7ee10bceae7029572a47200ff82418cd05558dd3.png" alt="Magic 8 Ball">
+            <p id="voli-ans"></p>
+            <button onclick="quote()">Volibear Quote </button>
+            <button onclick="clearQuote()">Clear Quote </button>
+        </div>
+        <div class="color-picker">
+            <h1 id="colorh1"> color picker </h1>
+            <input type="color" id="colorPicker">
+            <input type="text" id="colorCode">
+            <button id="colorChange"> change color </button>  
+            
+  
+        </div>
+        <div class="slideshow">
+            <div class="image-container">
+                <img id="slide" width="300" height="400">
+                <div class="button-container">
+                    <button onclick="prev()" id="prev"> Previous </button>
+                    <button onclick="next()" id="next"> Next </button>
+                </div>
+            </div>
+        </div>
+        <div id="calculator">
+            <input id="display" readonly>
+            <div id="keys">
+                <button class="operator" onclick="appendToDisplay('+')"> + </button>
+                <button class="calcBtn" onclick="appendToDisplay('7')"> 7 </button>
+                <button class="calcBtn" onclick="appendToDisplay('8')"> 8 </button>
+                <button class="calcBtn" onclick="appendToDisplay('9')"> 9 </button>
+                <button class="operator" onclick="appendToDisplay('-')"> - </button>
+                <button class="calcBtn" onclick="appendToDisplay('4')"> 4 </button>
+                <button class="calcBtn" onclick="appendToDisplay('5')"> 5 </button>
+                <button class="calcBtn" onclick="appendToDisplay('6')"> 6 </button>
+                <button class="operator" onclick="appendToDisplay('*')"> * </button>
+                <button class="calcBtn" onclick="appendToDisplay('1')"> 1 </button>
+                <button class="calcBtn" onclick="appendToDisplay('2')"> 2 </button>
+                <button class="calcBtn" onclick="appendToDisplay('3')"> 3 </button>
+                <button class="operator" onclick="appendToDisplay('/')"> / </button>
+                <button class="calcBtn" onclick="appendToDisplay('0')"> 0 </button>
+                <button class="calcBtn" onclick="appendToDisplay('.')"> . </button>
+                <button class="calcBtn" onclick="calculate()"> = </button>
+                <button class="operator" onclick="appendToDisplay('%')"> % </button>
+                <button class="operator" onclick="clearDisplay()"> CLR </button>
+            </div>
+        </div>
+    </div>
+    <div class="moreInfo">
+        <div id="info">
+            <p> Volibear is part of the Titanic Archetype. These are units with 8+ health or power. </p>
+        </div>
+        <button id="hider"> More about Volibear </button>
+    </div>
+    <script>
+
+    function increaseFont(elementId) {
+        let element = document.getElementById(elementId);
+        let computedStyle = window.getComputedStyle(element);
+        let currentSize = parseFloat(computedStyle.fontSize);
+        element.style.fontSize = (currentSize + 1) + "px";
+    }
+
+    function decreaseFont(elementId) {
+        let element = document.getElementById(elementId);
+        let computedStyle = window.getComputedStyle(element);
+        let currentSize = parseFloat(computedStyle.fontSize);
+        element.style.fontSize = (currentSize - 1) + "px";
+    }
+
+    function resetFont(elementId) {
+        let element = document.getElementById(elementId);
+        
+        let computedStyle = window.getComputedStyle(element);
+        let customFontSize = computedStyle.getPropertyValue('--h1-size');
+
+        if (elementId==='text1')
+            element.style.fontSize = '1em';
+        if (elementId==='title')
+             element.style.setProperty('font-size', customFontSize);
+    }
+
+    // function toggleDarkMode() {
+    //         let body = document.body;
+    //         body.classList.toggle("dark-mode");
+    //         let container = document.querySelector(".container");
+    //         container.classList.toggle("dark-mode");
+    //         let buttons = document.querySelectorAll("button");
+    //         buttons.forEach(function(button) {
+    //             button.classList.toggle("dark-mode");
+    //         });
+    // }
+
+    function toggleDarkMode() {
+    let body = document.body;
+    body.classList.toggle("dark-mode");
+    let container = document.querySelector(".container");
+    container.classList.toggle("dark-mode");
+    let buttons = document.querySelectorAll("button");
+
+    let darkModeButton = document.getElementById("darkModeButton");
+    buttons.forEach(function(button) {
+        button.classList.toggle("dark-mode");
+    });
+    if (body.classList.contains("dark-mode")) {
+        darkModeButton.textContent = "Light Mode";
+    } else {
+        darkModeButton.textContent = "Dark Mode";
+    }
+}
+
+        function quote() {
+            let quotes = [
+                "Who dares challenge the wild?", 
+                "This storm brings death.", 
+                "Tremble before Valhir.",
+                "With these claws, I carve the very world!",
+                "We'll both stand our ground until one falls.",
+                "What is water, but ice that is weak?",
+                "Drive your storms harder, Janna.",
+                "You wish to cut my thread? Grand boast, tiny being.", 
+                "Take heed, metal man. You speak to a true death-maker.",
+                "Do you see Ornn’s folly now?",
+                "When all is dark and cold, I SHALL REMAIN!",
+                "I AM VALHIR! I AM THE DOOM OF ALL!",
+                "Let us turn this tundra... RED!",
+                "A raging storm hungers!",
+                "I wield the storm!",
+                "Killing light!",
+                "You cannot overcome me!",
+                "Gift me new scars.",
+                "The storm breaks all!"
+            ];
+            let randomIndex = Math.floor(Math.random() * quotes.length);
+            let quote = quotes[randomIndex];
+            document.getElementById("voli-ans").innerText = " " + quote;
+        }
+
+        function clearQuote() {
+            document.getElementById("voli-ans").innerText = "";
+        }
+
+        document.getElementById("colorPicker").addEventListener("input", function() {
+            document.getElementById("colorCode").value = this.value;
+        });
+
+        document.getElementById("colorChange").addEventListener("click", function() {
+        let colorPick = document.getElementById("colorPicker").value;
+        let elements = document.querySelectorAll("h1, p, button");
+
+            elements.forEach(function(element) {
+                element.style.color = colorPick;
+            });
+        });
+        
+        function resetColor(){
+            let elements = document.querySelectorAll("h1, p, button");
+            elements.forEach(function(element) {
+            element.style.color = ""; 
+            });
+        }
+        var i = 0;
+        var images = [
+            'https://www.runeterrafire.com/images/cards/volibear.png',
+            'https://www.runeterrafire.com/images/cards/leveled-volibear-240x.png',
+            'https://masteringruneterra.com/wp-content/uploads/cards/full/08FR001T2.webp?1',
+            'https://masteringruneterra.com/wp-content/uploads/cards/full/08FR001T3.webp?1'
+        ];
+
+        function startSlide() {
+            document.getElementById('slide').src = images[1]; // Display the first image initially
+        }
+
+        function prev() {
+        i--;
+        if (i < 0) {
+            i = 0;
+        }
+        document.getElementById('slide').src = images[i];
+         }
+
+        function next() {
+            i++;
+            if (i > 3) 
+                i = 3;
+            document.getElementById('slide').src = images[i];
+        }
+
+        window.onload = startSlide;
+        
+        const display = document.getElementById("display");
+        function appendToDisplay(input){
+            display.value += input;
+        }
+
+        function clearDisplay(){
+            display.value = "";
+        }
+
+        function calculate(){
+            try { 
+                display.value = eval(display.value);
+            } catch (error){
+                display.value ="ERROR";
+            }
+        }
+        
+        const moreInfo = document.getElementById("hider");
+        const info = document.getElementById("info");
+        info.style.visibility = "hidden";
+
+        moreInfo.addEventListener("click", () => {
+            if (info.style.visibility === "hidden") {
+                info.style.visibility = "visible"; 
+            } else {
+                info.style.visibility = "hidden";
+            }
+        });
+
+    </script>   
+</body>
+</html>
